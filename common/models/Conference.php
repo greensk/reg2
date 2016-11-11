@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace common\models;
 
 use Yii;
 
@@ -39,6 +39,7 @@ class Conference extends \yii\db\ActiveRecord
             [['enabled'], 'integer'],
             [['title'], 'string', 'max' => 100],
             [['start_time'], 'string', 'max' => 45],
+            [['start_time'], 'date', 'format' => 'HH:mm:ss']
         ];
     }
 
@@ -48,15 +49,20 @@ class Conference extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'created' => 'Created',
-            'enabled' => 'Enabled',
-            'location' => 'Location',
-            'start_date' => 'Start Date',
-            'start_time' => 'Start Time',
+            'id' => '№',
+            'title' => 'Название',
+            'description' => 'Описание',
+            'created' => 'Дата создания',
+            'enabled' => 'Отображается',
+            'location' => 'Место проведения',
+            'start_date' => 'Дата начала',
+            'start_time' => 'Время начала'
         ];
+    }
+    
+    public function isAvailable()
+    {
+        return $this->enabled && new \DateTime($this->start_date) > new \DateTime();
     }
 
     /**

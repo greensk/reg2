@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace common\models;
 
 use Yii;
 
@@ -33,10 +33,19 @@ class Member extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['last_name', 'first_name', 'phone', 'email', 'conference_id'], 'required'],
+            [
+                ['last_name', 'first_name', 'phone', 'email', 'conference_id'],
+                'required',
+                'message' => 'Поле обязательно для заполнения'
+            ],
+            [
+                ['email'],
+                'email',
+                'message' => 'Введен неверный адрес e-mail'
+            ],
             [['conference_id'], 'integer'],
             [['reg_date'], 'safe'],
-            [['last_name', 'first_name', 'phone', 'email'], 'string', 'max' => 45],
+            [['last_name', 'first_name', 'phone', 'email'], 'string', 'max' => 45, 'tooLong' => 'Указано слишком длинное значение'],
             [['conference_id'], 'exist', 'skipOnError' => true, 'targetClass' => Conference::className(), 'targetAttribute' => ['conference_id' => 'id']],
         ];
     }
@@ -48,12 +57,12 @@ class Member extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'last_name' => 'Last Name',
-            'first_name' => 'First Name',
-            'phone' => 'Phone',
-            'email' => 'Email',
-            'conference_id' => 'Conference ID',
-            'reg_date' => 'Reg Date',
+            'last_name' => 'Фамилия',
+            'first_name' => 'Имя',
+            'phone' => 'Номер телефона',
+            'email' => 'E-mail',
+            'conference_id' => 'Конференция',
+            'reg_date' => 'Дата регистрации',
         ];
     }
 
