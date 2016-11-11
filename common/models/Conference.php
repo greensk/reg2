@@ -39,7 +39,7 @@ class Conference extends \yii\db\ActiveRecord
             [['enabled'], 'integer'],
             [['title'], 'string', 'max' => 100],
             [['start_time'], 'string', 'max' => 45],
-            [['start_time'], 'date', 'format' => 'HH:mm:ss']
+            [['start_time'], 'date', 'format' => 'HH:mm:ss', 'message' => 'Укажите в формате HH:mm:ss']
         ];
     }
 
