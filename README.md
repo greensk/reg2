@@ -1,20 +1,16 @@
-Yii 2 Advanced Project Template
+Тестовое приложение на Yii2: регистрация участников конференции
 ===============================
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
+## Инструкции по установке
 
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
-
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
-
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
-
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-advanced/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-advanced/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
+1. Выполнить клонированрие репозитория командой `git clone`, либо с использованием SmartGit. Проследите за тем, чтобы имя директории не содержало в себе `.git`.
+2. Настроить веб сервер: создать два витуальных домена, один для публичной части проекта, соответствующий директории `frontend/web`, другой для администраторской части, соответствующий директории `backend/web`.
+3. Открыть командную строку (консоль), перейти в директорию проекта, выполнить `composer install`
+4. Выполнить в командной строке `init`.
+5. Создать базу данных MySQL и пользователя MySQL.
+6. Указать параметры подключения к базе данных MySQL (имя базы данных, имя пользователя, пароль) в файле `common/config/main-local.php`.
+7. В командной строке выполнить `yii migrate/up`. Если выполнение завершилось ошибкой, значит неверно указаны параметры подключение к базе данных MySQL.
+8. Приложение должно работать. В администраторской части по-молчанию имя пользователя `admin`, пароль `admin`.
 
 DIRECTORY STRUCTURE
 -------------------
