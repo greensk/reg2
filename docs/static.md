@@ -28,7 +28,7 @@ class SimpleController extends Controller
 ```
 
 При этом представление может просто содержать HTML-код:
-```php
+```html
 <!-- frontend/views/simple/index.php -->
 <div>Hello world!</div>
 ```
