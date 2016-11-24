@@ -4,9 +4,9 @@
 
 1. Если в вашей сети требуется прокси-сервер для доступа в Интернет, выполните в командной строке команду `set http_proxy=<your_http_proxy:proxy_port>`, например `set http_proxy=10.0.0.20:3128`.
 2. Подключите необходимые расширения для Composer. `composer global require "fxp/composer-asset-plugin:^1.2.0"`.
-3. Выполните создание проекта composer `create-project --prefer-dist yiisoft/yii2-app-advanced yii-application`, где вместо yii-application — название проекта (так будет называться директория проекта).
+3. Выполните создание проекта `composer create-project --prefer-dist yiisoft/yii2-app-advanced yii-application`, где вместо yii-application — название проекта (так будет называться директория проекта).
 4. Перейдите в созданную директорию проекта: `cd yii-application`.
-5. Установите необходимые расширения Yii 2.0. Например, установки Jui для некоторых расширенных возможностей пользовательского инетфейса: `php composer.phar require --prefer-dist yiisoft/yii2-jui`.
+5. Установите необходимые расширения Yii 2.0. Например, установки Jui для некоторых расширенных возможностей пользовательского инетфейса: `composer require --prefer-dist yiisoft/yii2-jui`.
 6. Выполните команду init.
 7. Настройте веб сервер: создайте два витуальных домена, один для публичной части проекта, соответствующий директории `frontend/web`, другой для администраторской части, соответствующий директории `backend/web`.
 8. Создайте базу данных MySQL и пользователя MySQL.
