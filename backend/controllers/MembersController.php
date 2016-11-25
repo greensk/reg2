@@ -43,6 +43,7 @@ class MembersController extends Controller
     public function actionEdit($id)
     {
         $member = Member::findOne($id);
+        $conferenceList = Conference::find()->having('enabled = 1')->all();
         if (!$member) {
             throw new \yii\web\NotFoundHttpException('Участник не найден');
         }
@@ -54,6 +55,6 @@ class MembersController extends Controller
                 return $this->redirect(['members/index', 'id' => $member->conference_id]);
             }
         }
-        return $this->render('edit', ['member' => $member]);
+        return $this->render('edit', ['member' => $member, 'conferenceList' => $conferenceList]);
     }
 }

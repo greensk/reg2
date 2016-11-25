@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
 ?>
 <div>
@@ -12,6 +13,7 @@ use yii\bootstrap\ActiveForm;
             <?= $form->field($member, 'last_name') ?>
             <?= $form->field($member, 'phone') ?>
             <?= $form->field($member, 'email') ?>
+            <?= $form->field($member, 'conference_id')->listBox(ArrayHelper::map($conferenceList, 'id', 'title')) ?>
             <div class="form-group">
                 <?= Html::submitButton('<span class="glyphicon glyphicon-ok"></span> Сохранить', ['class' => 'btn']) ?>
             </div>
