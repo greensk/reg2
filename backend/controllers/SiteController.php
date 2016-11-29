@@ -13,7 +13,7 @@ use common\models\LoginForm;
 class SiteController extends Controller
 {
     /**
-     * @inheritdoc
+     * Контроль доступа
      */
     public function behaviors()
     {
@@ -22,11 +22,13 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
+                        // страница входа в систему и сообщения об ошибке доступны всем
                         'actions' => ['login', 'error'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        // выход из системы только для зарегистрированного пользователя
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -42,6 +44,7 @@ class SiteController extends Controller
     }
 
     /**
+     * Подключение страницы ошибки
      * @inheritdoc
      */
     public function actions()
@@ -54,7 +57,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Login action.
+     * Вход в систему
      *
      * @return string
      */
@@ -75,7 +78,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Logout action.
+     * Выход из системы
      *
      * @return string
      */
